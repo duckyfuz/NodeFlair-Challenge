@@ -49,7 +49,7 @@ export const App = () => {
           w={675}
           backgroundColor={"white"}
           boxShadow="base"
-          borderColor={"grey"}
+          borderColor={theme.colors.gray["300"]}
           borderWidth={1}
         >
           <Text align={"center"}>Selected</Text>

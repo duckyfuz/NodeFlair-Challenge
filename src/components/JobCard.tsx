@@ -65,7 +65,7 @@ const JobCard = ({ job }: any) => {
       style={{
         ...springProps,
         margin: "8px",
-        borderRadius: "6px",
+        borderRadius: "0.5rem",
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -74,7 +74,7 @@ const JobCard = ({ job }: any) => {
         w={425}
         px={5}
         key={job["Job Title"]}
-        // boxShadow={3}
+        borderRadius={"lg"}
         borderColor={theme.colors.gray["300"]}
         borderWidth={0.5}
       >
@@ -97,7 +97,7 @@ const JobCard = ({ job }: any) => {
                   )}
                 </HStack>
                 <Text as="b">{job["Job Title"]}</Text>
-                <HStack gap={0}>
+                <HStack justify={"start"} gap={0}>
                   <Text
                     mr={3}
                     as="b"
@@ -106,8 +106,10 @@ const JobCard = ({ job }: any) => {
                   >
                     {formatTimeAgo(job["Created Date"])}
                   </Text>
-                  <Icon mr={0.5} as={MdLocationOn} />
-                  <Text fontSize="sm">{job["Location"]}</Text>
+                  <Icon as={MdLocationOn} />
+                  <Text noOfLines={1} minW={5} fontSize="sm">
+                    {job["Location"]}
+                  </Text>
                 </HStack>
                 <Text as="b" fontSize="sm">
                   {job["Pay Range"]}
