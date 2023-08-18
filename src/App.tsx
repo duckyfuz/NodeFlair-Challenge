@@ -1,32 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Grid,
-  GridItem,
-  theme,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Heading,
-  Stack,
-  Divider,
-  HStack,
-  Container,
-  VStack,
-} from "@chakra-ui/react";
+import { ChakraProvider, Box, Text, theme, HStack } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
-import styled from "styled-components";
 
 import data from "./test/data.json";
-
-// const StickyGrid = styled(GridItem)`
-//   position: sticky;
-//   top: 0;
-// `;
+import JobCard from "./components/JobCard";
 
 export const App = () => {
   const [windowSize, setWindowSize] = useState([
@@ -56,43 +34,7 @@ export const App = () => {
       >
         <Box>
           {data.map((job) => (
-            <Card
-              w={425}
-              m={2}
-              key={job["Job Title"]}
-              boxShadow="base"
-              borderColor={"grey"}
-              borderWidth={1}
-            >
-              <CardBody>
-                <HStack justifyContent={"space-between"}>
-                  <VStack align={"start"}>
-                    <HStack>
-                      <Text>{job["Company Name"]}</Text>
-                      <Text>{job["Rating"]}</Text>
-                    </HStack>
-                    <Text>{job["Job Title"]}</Text>
-                    <HStack>
-                      <Text>{job["Created Date"]}</Text>
-                      <Text>{job["Location"]}</Text>
-                    </HStack>
-                    <Text>{job["Pay Range"]}</Text>
-                  </VStack>
-                  <Stack align={"end"}>
-                    <Text backgroundColor={"red"}>{job["Type"]}</Text>
-                  </Stack>
-                </HStack>
-              </CardBody>
-              <Divider />
-              <CardFooter>
-                <HStack>
-                  {job["Tech Stacks"] &&
-                    job["Tech Stacks"].map((tech) => (
-                      <Text key={tech}>{tech}</Text>
-                    ))}
-                </HStack>
-              </CardFooter>
-            </Card>
+            <JobCard job={job} />
           ))}
         </Box>
         <Box w={675}></Box>
