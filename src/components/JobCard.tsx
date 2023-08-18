@@ -40,7 +40,7 @@ const TechCard = ({ skill }: any) => {
   );
 };
 
-const JobCard = ({ job }: any) => {
+const JobCard = ({ job, selectedJob, setSelectedJob }: any) => {
   const [springProps, api] = useSpring(() => ({
     y: 0,
     boxShadow: "0px 0px 0px 0px #E2E8F0",
@@ -60,6 +60,14 @@ const JobCard = ({ job }: any) => {
     });
   };
 
+  const jobClickHandler = () => {
+    if (selectedJob === job.ID) {
+      return;
+    }
+    console.log(job.ID);
+    setSelectedJob(job.ID);
+  };
+
   return (
     <animated.div
       style={{
@@ -75,8 +83,13 @@ const JobCard = ({ job }: any) => {
         px={5}
         key={job["Job Title"]}
         borderRadius={"lg"}
-        borderColor={theme.colors.gray["300"]}
-        borderWidth={0.5}
+        borderColor={
+          selectedJob === job.ID
+            ? theme.colors.green["400"]
+            : theme.colors.gray["300"]
+        }
+        borderWidth={selectedJob === job.ID ? 3 : 0.5}
+        onClick={jobClickHandler}
       >
         <CardBody p={0}>
           <HStack justifyContent={"space-between"} align={"start"} my={5}>
@@ -84,7 +97,7 @@ const JobCard = ({ job }: any) => {
               <Image src={job["Logo"]} boxSize="50px" borderRadius={5} />
               <VStack align={"start"} gap={0}>
                 <HStack gap={0}>
-                  <Text fontSize="sm" mr={3}>
+                  <Text fontSize="sm" mr={3} noOfLines={1}>
                     {job["Company Name"]}
                   </Text>
                   {job["Rating"] && (
@@ -96,7 +109,9 @@ const JobCard = ({ job }: any) => {
                     </>
                   )}
                 </HStack>
-                <Text as="b">{job["Job Title"]}</Text>
+                <Text as="b" noOfLines={2}>
+                  {job["Job Title"]}
+                </Text>
                 <HStack justify={"start"} gap={0}>
                   <Text
                     mr={3}

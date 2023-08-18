@@ -11,6 +11,7 @@ export const App = () => {
     window.innerWidth,
     window.innerHeight,
   ]);
+  const [selectedJob, setSelectedJob] = useState("1");
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -34,7 +35,12 @@ export const App = () => {
       >
         <Box>
           {data.map((job) => (
-            <JobCard job={job} />
+            <JobCard
+              key={job.ID}
+              job={job}
+              selectedJob={selectedJob}
+              setSelectedJob={setSelectedJob}
+            />
           ))}
         </Box>
         <Box w={675}></Box>
@@ -51,8 +57,11 @@ export const App = () => {
           boxShadow="base"
           borderColor={theme.colors.gray["300"]}
           borderWidth={1}
+          p={4}
         >
-          <Text align={"center"}>Selected</Text>
+          <Text align={"start"} as="b" fontSize="4xl">
+            {data.find((job) => job.ID === selectedJob)["Job Title"]}
+          </Text>
         </Box>
       </HStack>
     </ChakraProvider>
