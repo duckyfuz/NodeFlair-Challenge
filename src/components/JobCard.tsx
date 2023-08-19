@@ -18,6 +18,8 @@ import { TechCard } from "./JobCard/Cards";
 import MiniDetails from "./JobCard/MiniDetails";
 import TechStack from "./JobCard/TechStack";
 
+import "./JobCard.css";
+
 const JobCard = ({
   job,
   selectedJob,
@@ -78,6 +80,7 @@ const JobCard = ({
 
   return (
     <animated.div
+      className="disable-text-selection"
       style={{
         ...springProps,
         margin: "8px",
