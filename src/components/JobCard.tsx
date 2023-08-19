@@ -36,14 +36,13 @@ const JobCard = ({
         charCount <= restriction &&
         displayNo[0] < job["Tech Stacks"].length
       ) {
-        charCount += job["Tech Stacks"][0].length * 10 + 100;
+        charCount += job["Tech Stacks"][displayNo[0]].length * 12 + 20;
         displayNo[0] += 1;
       }
       if (charCount > restriction) {
         displayNo[0] -= 1;
         displayNo[1] = true;
       }
-      console.log(charCount);
       setDisplayNo(displayNo);
     }
   }, [job, windowWidth]);

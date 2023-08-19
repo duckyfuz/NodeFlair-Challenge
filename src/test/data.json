@@ -74,11 +74,10 @@
     "Location": "Colorado",
     "Tech Stacks": [
       "Energy Modeling",
+      "SQL Server",
       "Python",
       "GIS",
       "C#",
-      ".NET",
-      "SQL Server",
       "HL7",
       "Renewable Energy Policy"
     ],
