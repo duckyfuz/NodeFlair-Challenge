@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  theme,
-  HStack,
-  Skeleton,
-  Card,
-} from "@chakra-ui/react";
-import { ColorModeSwitcher } from "./ColorModeSwitcher";
+import { ChakraProvider, Box, theme, HStack } from "@chakra-ui/react";
 
 import data from "./test/data.json";
 import JobCard from "./components/JobCard";
+import { DetailsCard } from "./components/DetailsCard";
 
 export const App = () => {
   const [windowSize, setWindowSize] = useState([
@@ -32,9 +24,7 @@ export const App = () => {
         setMobileView(false);
       }
     };
-
     window.addEventListener("resize", handleWindowResize);
-
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
@@ -50,12 +40,12 @@ export const App = () => {
 
   return (
     <ChakraProvider theme={theme}>
-      {/* <ColorModeSwitcher justifySelf="flex-end" /> */}
       <HStack
         justifyContent={"center"}
         alignItems={"flex-start"}
         backgroundColor={theme.colors.gray["100"]}
       >
+        {/* Display jobs list with dynamic width */}
         <Box width={mobileView ? "100%" : ""}>
           {data.map((job) => (
             <JobCard
@@ -69,44 +59,13 @@ export const App = () => {
             />
           ))}
         </Box>
+        {/* Display details only if !mobileView */}
         {!mobileView && (
-          <>
-            <Card w={675} />
-            <Skeleton
-              isLoaded={!isLoading}
-              position={"fixed"}
-              top={0}
-              right={(window.innerWidth - 425 - 675 - 40) / 2}
-              borderRadius={"lg"}
-              h={window.innerHeight}
-              w={675}
-              // Add dynamic sizing if there's time
-              // maxW={675}
-              // minW={650}
-            />
-            {!isLoading && (
-              <Card
-                position={"fixed"}
-                top={0}
-                right={(window.innerWidth - 425 - 675 - 40) / 2}
-                h={window.innerHeight}
-                w={675}
-                // Add dynamic sizing if there's time
-                // maxW={675}
-                // minW={650}
-                backgroundColor={"white"}
-                boxShadow="base"
-                borderRadius={"lg"}
-                borderColor={theme.colors.gray["300"]}
-                borderWidth={1}
-                p={4}
-              >
-                <Text align={"start"} as="b" fontSize="4xl">
-                  {data.find((job) => job.ID === selectedJob)["Job Title"]}
-                </Text>
-              </Card>
-            )}
-          </>
+          <DetailsCard
+            isLoading={isLoading}
+            data={data}
+            selectedJob={selectedJob}
+          />
         )}
       </HStack>
     </ChakraProvider>
