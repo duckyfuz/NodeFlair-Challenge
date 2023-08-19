@@ -26,7 +26,7 @@ export const App = () => {
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowSize([window.innerWidth, window.innerHeight]);
-      if (window.innerWidth < 1010) {
+      if (window.innerWidth < 675 + 425 + 8) {
         setMobileView(true);
       } else {
         setMobileView(false);
@@ -56,7 +56,7 @@ export const App = () => {
         alignItems={"flex-start"}
         backgroundColor={theme.colors.gray["100"]}
       >
-        <Box backgroundColor={"red"} width={mobileView ? "100%" : ""}>
+        <Box width={mobileView ? "100%" : ""}>
           {data.map((job) => (
             <JobCard
               key={job.ID}
