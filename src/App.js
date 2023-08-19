@@ -21,10 +21,16 @@ export const App = () => {
   ]);
   const [selectedJob, setSelectedJob] = useState("1");
   const [isLoading, setIsLoading] = useState(false);
+  const [mobileView, setMobileView] = useState(false);
 
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowSize([window.innerWidth, window.innerHeight]);
+      if (window.innerWidth < 1010) {
+        setMobileView(true);
+      } else {
+        setMobileView(false);
+      }
     };
 
     window.addEventListener("resize", handleWindowResize);
@@ -48,9 +54,9 @@ export const App = () => {
       <HStack
         justifyContent={"center"}
         alignItems={"flex-start"}
-        backgroundColor={"#F5F5F5"}
+        backgroundColor={theme.colors.gray["100"]}
       >
-        <Box>
+        <Box backgroundColor={"red"} width={mobileView ? "100%" : ""}>
           {data.map((job) => (
             <JobCard
               key={job.ID}
@@ -58,43 +64,49 @@ export const App = () => {
               selectedJob={selectedJob}
               setSelectedJob={setSelectedJob}
               isLoading={isLoading}
+              mobileView={mobileView}
+              windowWidth={windowSize[0]}
             />
           ))}
         </Box>
-        <Card w={675} />
-        <Skeleton
-          isLoaded={!isLoading}
-          position={"fixed"}
-          top={0}
-          right={(window.innerWidth - 425 - 675 - 40) / 2}
-          borderRadius={"lg"}
-          h={window.innerHeight}
-          w={675}
-          // Add dynamic sizing if there's time
-          // maxW={675}
-          // minW={650}
-        />
-        {!isLoading && (
-          <Card
-            position={"fixed"}
-            top={0}
-            right={(window.innerWidth - 425 - 675 - 40) / 2}
-            h={window.innerHeight}
-            w={675}
-            // Add dynamic sizing if there's time
-            // maxW={675}
-            // minW={650}
-            backgroundColor={"white"}
-            boxShadow="base"
-            borderRadius={"lg"}
-            borderColor={theme.colors.gray["300"]}
-            borderWidth={1}
-            p={4}
-          >
-            <Text align={"start"} as="b" fontSize="4xl">
-              {data.find((job) => job.ID === selectedJob)["Job Title"]}
-            </Text>
-          </Card>
+        {!mobileView && (
+          <>
+            <Card w={675} />
+            <Skeleton
+              isLoaded={!isLoading}
+              position={"fixed"}
+              top={0}
+              right={(window.innerWidth - 425 - 675 - 40) / 2}
+              borderRadius={"lg"}
+              h={window.innerHeight}
+              w={675}
+              // Add dynamic sizing if there's time
+              // maxW={675}
+              // minW={650}
+            />
+            {!isLoading && (
+              <Card
+                position={"fixed"}
+                top={0}
+                right={(window.innerWidth - 425 - 675 - 40) / 2}
+                h={window.innerHeight}
+                w={675}
+                // Add dynamic sizing if there's time
+                // maxW={675}
+                // minW={650}
+                backgroundColor={"white"}
+                boxShadow="base"
+                borderRadius={"lg"}
+                borderColor={theme.colors.gray["300"]}
+                borderWidth={1}
+                p={4}
+              >
+                <Text align={"start"} as="b" fontSize="4xl">
+                  {data.find((job) => job.ID === selectedJob)["Job Title"]}
+                </Text>
+              </Card>
+            )}
+          </>
         )}
       </HStack>
     </ChakraProvider>

@@ -14,8 +14,6 @@ import {
   theme,
   Icon,
   Skeleton,
-  SkeletonText,
-  SkeletonCircle,
 } from "@chakra-ui/react";
 
 import { StarIcon } from "@chakra-ui/icons";
@@ -43,26 +41,36 @@ const TechCard = ({ skill }: any) => {
   );
 };
 
-const JobCard = ({ job, selectedJob, setSelectedJob, isLoading }: any) => {
+const JobCard = ({
+  job,
+  selectedJob,
+  setSelectedJob,
+  isLoading,
+  mobileView,
+  windowWidth,
+}: any) => {
   const [displayNo, setDisplayNo] = useState([0, false]);
 
   useEffect(() => {
     if (job["Tech Stacks"]) {
       let displayNo: [number, boolean] = [0, false];
       let charCount: number = 0;
-      // Not sure how it's actally implemented on NodeFlair, I opted to limit the number of characters - could have errors if there are multiple 'short' items eg c#, thus added a fixed cost per item
-      while (charCount <= 30) {
-        charCount += job["Tech Stacks"][0].length + 5;
+      let restriction = mobileView ? windowWidth : 425;
+      while (
+        charCount <= restriction &&
+        displayNo[0] < job["Tech Stacks"].length
+      ) {
+        charCount += job["Tech Stacks"][0].length * 10 + 100;
         displayNo[0] += 1;
       }
-      if (charCount > 30) {
+      if (charCount > restriction) {
         displayNo[0] -= 1;
         displayNo[1] = true;
       }
       console.log(charCount);
       setDisplayNo(displayNo);
     }
-  }, [job]);
+  }, [job, windowWidth]);
 
   const [springProps, api] = useSpring(() => ({
     y: 0,
@@ -97,13 +105,14 @@ const JobCard = ({ job, selectedJob, setSelectedJob, isLoading }: any) => {
         ...springProps,
         margin: "8px",
         borderRadius: "0.5rem",
+        backgroundColor: "red",
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <Skeleton isLoaded={!isLoading} borderRadius={"lg"}>
         <Card
-          w={425}
+          w={mobileView ? "100%" : 425}
           px={5}
           key={job["Job Title"]}
           borderRadius={"lg"}
