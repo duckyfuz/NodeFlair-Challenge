@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
 
 import {
@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 
 import { StarIcon } from "@chakra-ui/icons";
-import { MdLocationOn } from "react-icons/md";
+import { MdLocationOn, MdMoreHoriz } from "react-icons/md";
 
 import { formatTimeAgo } from "../helpers/utils";
 
@@ -33,7 +33,12 @@ const TypeCard = ({ type }: any) => {
 const TechCard = ({ skill }: any) => {
   return (
     <Card px={2} py={1} boxShadow="0" backgroundColor={theme.colors.gray[100]}>
-      <Text as="b" color={theme.colors.gray[600]}>
+      <Text
+        as="b"
+        color={theme.colors.gray[600]}
+        //   noOfLines={1}
+        w={"100%"}
+      >
         {skill}
       </Text>
     </Card>
@@ -41,6 +46,26 @@ const TechCard = ({ skill }: any) => {
 };
 
 const JobCard = ({ job, selectedJob, setSelectedJob }: any) => {
+  const [displayNo, setDisplayNo] = useState([0, false]);
+
+  useEffect(() => {
+    if (job["Tech Stacks"]) {
+      let displayNo: [number, boolean] = [0, false];
+      let charCount: number = 0;
+      // Not sure how it's actally implemented on NodeFlair, I opted to limit the number of characters - could have errors if there are multiple 'short' items eg c#, thus added a fixed cost per item
+      while (charCount <= 30) {
+        charCount += job["Tech Stacks"][0].length + 5;
+        displayNo[0] += 1;
+      }
+      if (charCount > 30) {
+        displayNo[0] -= 1;
+        displayNo[1] = true;
+      }
+      console.log(charCount);
+      setDisplayNo(displayNo);
+    }
+  }, [job]);
+
   const [springProps, api] = useSpring(() => ({
     y: 0,
     boxShadow: "0px 0px 0px 0px #E2E8F0",
@@ -140,9 +165,10 @@ const JobCard = ({ job, selectedJob, setSelectedJob }: any) => {
         <CardFooter m={0} py={2} px={0}>
           <HStack gap={1} minH={8}>
             {job["Tech Stacks"] &&
-              job["Tech Stacks"].map((tech: any) => (
-                <TechCard key={tech} skill={tech} />
-              ))}
+              job["Tech Stacks"]
+                .slice(0, displayNo[0])
+                .map((tech: any) => <TechCard key={tech} skill={tech} />)}
+            <Icon as={MdMoreHoriz} />
           </HStack>
         </CardFooter>
       </Card>
