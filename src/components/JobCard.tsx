@@ -105,6 +105,7 @@ const JobCard = ({
         ...springProps,
         margin: "8px",
         borderRadius: "0.5rem",
+        backgroundColor: "red",
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
