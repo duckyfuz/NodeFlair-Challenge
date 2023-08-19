@@ -9,9 +9,11 @@ import {
     VStack,
     theme,
 } from "@chakra-ui/react";
+
 import { StarIcon } from "@chakra-ui/icons";
-import { formatTimeAgo } from "../../helpers/utils";
 import { MdLocationOn } from "react-icons/md";
+
+import { formatTimeAgo } from "../../helpers/utils";
 import { TypeCard } from "./Cards";
 
 const MiniDetails = ({ job }: any) => {

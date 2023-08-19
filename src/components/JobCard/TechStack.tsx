@@ -1,6 +1,8 @@
-import { HStack, Icon } from "@chakra-ui/react";
 import React from "react";
+import { HStack, Icon } from "@chakra-ui/react";
+
 import { TechCard } from "./Cards";
+
 import { MdMoreHoriz } from "react-icons/md";
 
 const TechStack = ({ stacks, displayNo }: any) => {

@@ -12,9 +12,6 @@ import {
   Skeleton,
 } from "@chakra-ui/react";
 
-import { MdMoreHoriz } from "react-icons/md";
-
-import { TechCard } from "./JobCard/Cards";
 import MiniDetails from "./JobCard/MiniDetails";
 import TechStack from "./JobCard/TechStack";
 
