@@ -6,7 +6,7 @@
     "Created Date": "2023-08-14T10:30:00Z",
     "Location": "California",
     "Rating": 4.2,
-    "Logo": "https://source.unsplash.com/random/200x200",
+    "Logo": "https://plus.unsplash.com/premium_photo-1691854350133-8e9a6c8d443c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60",
     "Type": "Fullstack",
     "Tech Stacks": ["React", "Node.js", "Express", "MongoDB"]
   },
@@ -17,7 +17,7 @@
     "Created Date": "2023-08-15T15:45:00Z",
     "Location": "New York",
     "Tech Stacks": ["Java", "Spring", "MySQL", "REST API"],
-    "Logo": "https://source.unsplash.com/random/200x200",
+    "Logo": "https://images.unsplash.com/photo-1646021780609-9c908307edc5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60",
     "Type": "Backend"
   },
   {
@@ -28,7 +28,7 @@
     "Location": "Washington",
     "Pay Range": "S$8,000 - S$16,500 / mth",
     "Rating": 3.9,
-    "Logo": "https://source.unsplash.com/random/200x200",
+    "Logo": "https://plus.unsplash.com/premium_photo-1679737774219-f69ece333f98?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60",
     "Type": "Analyst"
   },
   {
@@ -40,7 +40,7 @@
     "Tech Stacks": ["Figma", "Sketch", "Adobe XD", "InVision"],
     "Pay Range": "S$6,800 - S$13,200 / mth",
     "Rating": 4.5,
-    "Logo": "https://source.unsplash.com/random/200x200",
+    "Logo": "https://plus.unsplash.com/premium_photo-1689976805077-631ccd6e67c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
     "Type": "QA"
   },
   {
@@ -52,7 +52,7 @@
     "Tech Stacks": ["SIEM", "Firewall", "Ethical Hacking", "Incident Response"],
     "Pay Range": "S$7,900 - S$15,800 / mth",
     "Rating": 3.7,
-    "Logo": "https://source.unsplash.com/random/200x200",
+    "Logo": "https://images.unsplash.com/photo-1691935665140-a488297c52c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
     "Type": "SysOps"
   },
   {
@@ -63,7 +63,7 @@
     "Location": "New York",
     "Tech Stacks": ["C#", ".NET", "SQL Server", "HL7"],
     "Rating": 4.1,
-    "Logo": "https://source.unsplash.com/random/200x200",
+    "Logo": "https://images.unsplash.com/photo-1692283747616-b2209a722203?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0OHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
     "Type": "Backend"
   },
   {
@@ -84,7 +84,7 @@
     ],
     "Pay Range": "S$6,500 - S$12,800 / mth",
     "Rating": 3.2,
-    "Logo": "https://source.unsplash.com/random/200x200",
+    "Logo": "https://images.unsplash.com/photo-1692340797397-7c902f8173be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyM3x8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
     "Type": "Analyst"
   },
   {
@@ -95,7 +95,7 @@
     "Location": "Illinois",
     "Tech Stacks": ["ROS", "Python", "Computer Vision", "Machine Learning"],
     "Rating": 4.7,
-    "Logo": "https://source.unsplash.com/random/200x200",
+    "Logo": "https://images.unsplash.com/photo-1691573479026-14dbac630c88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
     "Type": "Fullstack"
   },
   {
@@ -106,7 +106,7 @@
     "Location": "Florida",
     "Pay Range": "S$7,800 - S$15,000 / mth",
     "Rating": 4.0,
-    "Logo": "https://source.unsplash.com/random/200x200",
+    "Logo": "https://plus.unsplash.com/premium_photo-1688114309732-2c6e45d1ff53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzN3x8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
     "Type": "Backend"
   },
   {
@@ -123,7 +123,7 @@
     ],
     "Pay Range": "S$8,500 - S$17,000 / mth",
     "Rating": 3.6,
-    "Logo": "https://source.unsplash.com/random/200x200",
+    "Logo": "https://images.unsplash.com/photo-1691533540562-93a4aaac038d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzM3x8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
     "Type": "SysOps"
   }
 ]

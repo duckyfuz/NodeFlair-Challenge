@@ -69,10 +69,10 @@ export const App = () => {
           right={(window.innerWidth - 425 - 675 - 40) / 2}
           borderRadius={"lg"}
           h={window.innerHeight}
+          w={675}
           // Add dynamic sizing if there's time
           // maxW={675}
           // minW={650}
-          w={675}
         />
         {!isLoading && (
           <Card
@@ -80,10 +80,10 @@ export const App = () => {
             top={0}
             right={(window.innerWidth - 425 - 675 - 40) / 2}
             h={window.innerHeight}
+            w={675}
             // Add dynamic sizing if there's time
             // maxW={675}
             // minW={650}
-            w={675}
             backgroundColor={"white"}
             boxShadow="base"
             borderRadius={"lg"}

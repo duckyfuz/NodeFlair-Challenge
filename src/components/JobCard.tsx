@@ -150,8 +150,13 @@ const JobCard = ({ job, selectedJob, setSelectedJob, isLoading }: any) => {
                     >
                       {formatTimeAgo(job["Created Date"])}
                     </Text>
-                    <Icon as={MdLocationOn} />
-                    <Text noOfLines={1} minW={5} fontSize="sm">
+                    <Icon as={MdLocationOn} color={theme.colors.gray[600]} />
+                    <Text
+                      noOfLines={1}
+                      minW={5}
+                      fontSize="sm"
+                      color={theme.colors.gray[600]}
+                    >
                       {job["Location"]}
                     </Text>
                   </HStack>
