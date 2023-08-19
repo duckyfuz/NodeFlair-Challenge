@@ -109,7 +109,6 @@ const JobCard = ({ job, selectedJob, setSelectedJob, isLoading }: any) => {
       <Skeleton isLoaded={!isLoading} borderRadius={"lg"}>
         <Card
           w={425}
-          minH={150}
           px={5}
           key={job["Job Title"]}
           borderRadius={"lg"}
@@ -122,7 +121,12 @@ const JobCard = ({ job, selectedJob, setSelectedJob, isLoading }: any) => {
           onClick={jobClickHandler}
         >
           <CardBody p={0}>
-            <HStack justifyContent={"space-between"} align={"start"} my={5}>
+            <HStack
+              justifyContent={"space-between"}
+              align={"start"}
+              marginTop={4}
+              marginBottom={2}
+            >
               <HStack align={"start"}>
                 <Image src={job["Logo"]} boxSize="50px" borderRadius={5} />
                 <VStack align={"start"} gap={0}>
