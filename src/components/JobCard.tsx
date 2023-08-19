@@ -36,12 +36,7 @@ const TypeCard = ({ type }: any) => {
 const TechCard = ({ skill }: any) => {
   return (
     <Card px={2} py={1} boxShadow="0" backgroundColor={theme.colors.gray[100]}>
-      <Text
-        as="b"
-        color={theme.colors.gray[600]}
-        //   noOfLines={1}
-        w={"100%"}
-      >
+      <Text as="b" color={theme.colors.gray[600]} w={"100%"}>
         {skill}
       </Text>
     </Card>
@@ -148,7 +143,7 @@ const JobCard = ({ job, selectedJob, setSelectedJob, isLoading }: any) => {
                   </Text>
                   <HStack justify={"start"} gap={0}>
                     <Text
-                      mr={3}
+                      mr={2}
                       as="b"
                       fontSize="sm"
                       color={theme.colors.green[500]}
@@ -160,9 +155,23 @@ const JobCard = ({ job, selectedJob, setSelectedJob, isLoading }: any) => {
                       {job["Location"]}
                     </Text>
                   </HStack>
-                  <Text as="b" fontSize="sm">
-                    {job["Pay Range"]}
-                  </Text>
+                  {job["Pay Range"] && (
+                    <HStack>
+                      <Text as="b" fontSize="sm">
+                        {job["Pay Range"]}
+                      </Text>
+                      <Card
+                        px={2}
+                        py={1}
+                        boxShadow="0"
+                        backgroundColor={theme.colors.gray[100]}
+                      >
+                        <Text color={theme.colors.gray[700]} fontSize="sm">
+                          EST
+                        </Text>
+                      </Card>
+                    </HStack>
+                  )}
                 </VStack>
               </HStack>
               <Stack>
