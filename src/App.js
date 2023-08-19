@@ -8,6 +8,7 @@ import {
   HStack,
   Skeleton,
   Card,
+  Flex,
 } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 
@@ -56,7 +57,7 @@ export const App = () => {
         alignItems={"flex-start"}
         backgroundColor={theme.colors.gray["100"]}
       >
-        <Box backgroundColor={"red"} width={mobileView ? "100%" : ""}>
+        <Box width={mobileView ? "100%" : ""}>
           {data.map((job) => (
             <JobCard
               key={job.ID}
@@ -76,7 +77,7 @@ export const App = () => {
               isLoaded={!isLoading}
               position={"fixed"}
               top={0}
-              right={(window.innerWidth - 425 - 675 - 40) / 2}
+              left={(window.innerWidth - 425 - 675) / 2 + 425}
               borderRadius={"lg"}
               h={window.innerHeight}
               w={675}
@@ -85,26 +86,37 @@ export const App = () => {
               // minW={650}
             />
             {!isLoading && (
-              <Card
+              <Box
                 position={"fixed"}
                 top={0}
-                right={(window.innerWidth - 425 - 675 - 40) / 2}
+                left={(window.innerWidth - 425 - 675) / 2}
                 h={window.innerHeight}
-                w={675}
-                // Add dynamic sizing if there's time
-                // maxW={675}
-                // minW={650}
-                backgroundColor={"white"}
-                boxShadow="base"
-                borderRadius={"lg"}
-                borderColor={theme.colors.gray["300"]}
-                borderWidth={1}
-                p={4}
+                w={"100%"}
+                gap={0}
               >
-                <Text align={"start"} as="b" fontSize="4xl">
-                  {data.find((job) => job.ID === selectedJob)["Job Title"]}
-                </Text>
-              </Card>
+                <HStack>
+                  <Box width={425 - 8} backgroundColor={"red"} h={100} />
+                  <Box
+                    maxW={675}
+                    h={window.innerHeight}
+                    flex={1}
+                    // Add dynamic sizing if there's time
+                    // maxW={675}
+                    // minW={650}
+                    backgroundColor={"white"}
+                    boxShadow="base"
+                    borderRadius={"lg"}
+                    borderColor={theme.colors.gray["300"]}
+                    borderWidth={1}
+                    p={4}
+                  >
+                    <Card w={425} />
+                    <Text align={"start"} as="b" fontSize="4xl">
+                      {data.find((job) => job.ID === selectedJob)["Job Title"]}
+                    </Text>
+                  </Box>
+                </HStack>
+              </Box>
             )}
           </>
         )}
