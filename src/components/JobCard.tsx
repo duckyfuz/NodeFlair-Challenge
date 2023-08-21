@@ -6,9 +6,7 @@ import {
   CardBody,
   CardFooter,
   Divider,
-  HStack,
   theme,
-  Icon,
   Skeleton,
 } from "@chakra-ui/react";
 
@@ -16,6 +14,7 @@ import MiniDetails from "./JobCard/MiniDetails";
 import TechStack from "./JobCard/TechStack";
 
 import "./JobCard.css";
+import { nodeColors } from "../helpers/nodeColors";
 
 const JobCard = ({
   job,
@@ -79,7 +78,7 @@ const JobCard = ({
       className="disable-text-selection"
       style={{
         ...springProps,
-        margin: "8px",
+        margin: "10px",
         borderRadius: "0.5rem",
       }}
       onMouseEnter={handleMouseEnter}
@@ -91,12 +90,17 @@ const JobCard = ({
           px={5}
           key={job["Job Title"]}
           borderRadius={"lg"}
-          borderColor={
+          borderColor={theme.colors.gray["300"]}
+          borderWidth={selectedJob === job.ID ? 0 : 0.5}
+          outlineColor={
             selectedJob === job.ID
               ? theme.colors.green["400"]
               : theme.colors.gray["300"]
           }
-          borderWidth={selectedJob === job.ID ? 3 : 0.5}
+          // outline={selectedJob === job.ID ? 3 : 0.5}
+          outline={
+            selectedJob === job.ID ? `3px solid ${nodeColors.borderGreen}` : ""
+          }
           onClick={jobClickHandler}
         >
           <CardBody p={0}>

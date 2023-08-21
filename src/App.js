@@ -56,6 +56,7 @@ export const App = () => {
               isLoading={isLoading}
               mobileView={mobileView}
               windowWidth={windowSize[0]}
+              
             />
           ))}
         </Box>
