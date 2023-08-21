@@ -8,6 +8,7 @@ import {
   Divider,
   theme,
   Skeleton,
+  Box,
 } from "@chakra-ui/react";
 
 import MiniDetails from "./JobCard/MiniDetails";
@@ -87,7 +88,8 @@ const JobCard = ({
       <Skeleton isLoaded={!isLoading} borderRadius={"lg"}>
         <Card
           w={mobileView ? "100%" : 425}
-          px={5}
+          px={6}
+          py={1}
           key={job["Job Title"]}
           borderRadius={"lg"}
           borderColor={theme.colors.gray["300"]}
@@ -100,7 +102,9 @@ const JobCard = ({
           <CardBody p={0}>
             <MiniDetails job={job} />
           </CardBody>
-          <Divider />
+          <Box px={2}>
+            <Divider color={nodeColors.backgroundGrey} />
+          </Box>
           <CardFooter m={0} py={2} px={0}>
             <TechStack stacks={job["Tech Stacks"]} displayNo={displayNo} />
           </CardFooter>
