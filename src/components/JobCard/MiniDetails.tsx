@@ -1,13 +1,13 @@
 import React from "react";
 import {
-    Card,
-    HStack,
-    Icon,
-    Image,
-    Stack,
-    Text,
-    VStack,
-    theme,
+  Card,
+  HStack,
+  Icon,
+  Image,
+  Stack,
+  Text,
+  VStack,
+  theme,
 } from "@chakra-ui/react";
 
 import { StarIcon } from "@chakra-ui/icons";
@@ -15,6 +15,7 @@ import { MdLocationOn } from "react-icons/md";
 
 import { formatTimeAgo } from "../../helpers/utils";
 import { TypeCard } from "./Cards";
+import { nodeColors } from "../../helpers/nodeColors";
 
 const MiniDetails = ({ job }: any) => {
   return (
@@ -44,16 +45,11 @@ const MiniDetails = ({ job }: any) => {
             {job["Job Title"]}
           </Text>
           <HStack justify={"start"} gap={0}>
-            <Text mr={2} as="b" fontSize="sm" color={theme.colors.green[500]}>
+            <Text mr={2} as="b" fontSize="sm" color={nodeColors.green}>
               {formatTimeAgo(job["Created Date"])}
             </Text>
-            <Icon as={MdLocationOn} color={theme.colors.gray[600]} />
-            <Text
-              noOfLines={1}
-              minW={5}
-              fontSize="sm"
-              color={theme.colors.gray[600]}
-            >
+            <Icon as={MdLocationOn} color={nodeColors.grey} />
+            <Text noOfLines={1} minW={5} fontSize="sm" color={nodeColors.grey}>
               {job["Location"]}
             </Text>
           </HStack>
@@ -64,11 +60,11 @@ const MiniDetails = ({ job }: any) => {
               </Text>
               <Card
                 px={2}
-                py={1}
+                py={0.5}
                 boxShadow="0"
-                backgroundColor={theme.colors.gray[100]}
+                backgroundColor={nodeColors.backgroundGrey}
               >
-                <Text color={theme.colors.gray[700]} fontSize="sm">
+                <Text color={nodeColors.darkGrey} fontSize="sm">
                   EST
                 </Text>
               </Card>

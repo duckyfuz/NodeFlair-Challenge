@@ -1,10 +1,21 @@
 import React, { useEffect, useState } from "react";
 
-import { ChakraProvider, Box, theme, HStack } from "@chakra-ui/react";
+import { ChakraProvider, Box, extendTheme, HStack } from "@chakra-ui/react";
 
 import data from "./test/data.json";
 import JobCard from "./components/JobCard";
 import { DetailsCard } from "./components/DetailsCard";
+import { nodeColors } from "./helpers/nodeColors";
+
+const theme = extendTheme({
+  colors: {
+    green: {
+      100: "#010605",
+      back: "rgba(228, 247, 233)",
+      char: "rgba(114, 198, 111)",
+    },
+  },
+});
 
 export const App = () => {
   const [windowSize, setWindowSize] = useState([
@@ -43,7 +54,7 @@ export const App = () => {
       <HStack
         justifyContent={"center"}
         alignItems={"flex-start"}
-        backgroundColor={theme.colors.gray["100"]}
+        backgroundColor={nodeColors.backgroundGrey}
       >
         {/* Display jobs list with dynamic width */}
         <Box width={mobileView ? "100%" : ""}>
@@ -56,7 +67,6 @@ export const App = () => {
               isLoading={isLoading}
               mobileView={mobileView}
               windowWidth={windowSize[0]}
-              
             />
           ))}
         </Box>

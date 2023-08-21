@@ -92,14 +92,8 @@ const JobCard = ({
           borderRadius={"lg"}
           borderColor={theme.colors.gray["300"]}
           borderWidth={selectedJob === job.ID ? 0 : 0.5}
-          outlineColor={
-            selectedJob === job.ID
-              ? theme.colors.green["400"]
-              : theme.colors.gray["300"]
-          }
-          // outline={selectedJob === job.ID ? 3 : 0.5}
           outline={
-            selectedJob === job.ID ? `3px solid ${nodeColors.borderGreen}` : ""
+            selectedJob === job.ID ? `3px solid ${nodeColors.green}` : ""
           }
           onClick={jobClickHandler}
         >
