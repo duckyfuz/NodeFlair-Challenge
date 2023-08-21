@@ -29,19 +29,24 @@ const MiniDetails = ({ job }: any) => {
         <Image src={job["Logo"]} boxSize="50px" borderRadius={5} />
         <VStack align={"start"} gap={0}>
           <HStack gap={0}>
-            <Text fontSize="sm" mr={3} noOfLines={1}>
+            <Text
+              fontSize="sm"
+              mr={3}
+              noOfLines={1}
+              color={nodeColors.darkGrey}
+            >
               {job["Company Name"]}
             </Text>
             {job["Rating"] && (
               <>
-                <Text fontSize="sm" mr={1}>
+                <Text fontSize="sm" mr={1} color={nodeColors.darkGrey}>
                   {job["Rating"]}
                 </Text>
-                <StarIcon />
+                <StarIcon color={nodeColors.darkGrey} />
               </>
             )}
           </HStack>
-          <Text as="b" noOfLines={2}>
+          <Text as="b" noOfLines={2} color={nodeColors.darkGrey}>
             {job["Job Title"]}
           </Text>
           <HStack justify={"start"} gap={0}>
