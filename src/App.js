@@ -7,16 +7,6 @@ import JobCard from "./components/JobCard";
 import { DetailsCard } from "./components/DetailsCard";
 import { nodeColors } from "./helpers/nodeColors";
 
-const theme = extendTheme({
-  colors: {
-    green: {
-      100: "#010605",
-      back: "rgba(228, 247, 233)",
-      char: "rgba(114, 198, 111)",
-    },
-  },
-});
-
 export const App = () => {
   const [windowSize, setWindowSize] = useState([
     window.innerWidth,
