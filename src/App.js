@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { ChakraProvider, Box, extendTheme, HStack } from "@chakra-ui/react";
+import { ChakraProvider, Box, HStack } from "@chakra-ui/react";
 
 import data from "./test/data.json";
 import JobCard from "./components/JobCard";

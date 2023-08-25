@@ -1,4 +1,4 @@
-import { Card, Text, theme } from "@chakra-ui/react";
+import { Card, Text } from "@chakra-ui/react";
 import { nodeColors } from "../../helpers/nodeColors";
 
 const TypeCard = ({ type }: any) => {
